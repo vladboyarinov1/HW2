@@ -1,39 +1,39 @@
-import React from 'react'
+import React, {FC} from 'react'
 import s from './Message.module.css'
+import {MessageType} from '../HW1';
+import {
+    Time,
+    Image,
+    ImageAndText, ImageAndTime,
+    MessageBlock,
+    MessageName,
+    MessageText, MessageTextBlock
+} from '../../../common/styles/commonMessageStyle';
 
-// нужно создать правильный тип вместо any
-export type MessagePropsType = any
+export type MessagePropsType = {
+    message: MessageType
+}
 
-// нужно отобразить приходящие данные
-const Message = (props: MessagePropsType) => {
+const Message: FC<MessagePropsType> = ({message}) => {
     return (
-        <div id={'hw1-message-' + props.message.id} className={s.message}>
-            <div className={s.imageAndText}>
-                <img
-                    id={'hw1-avatar-' + props.message.id}
-                    // создаёт студент
-
-                    //
-                />
-                <div className={s.text}>
-                    <div id={'hw1-name-' + props.message.id} className={s.name}>
-                        {/*создаёт студент*/}
-
-                        {/**/}
-                    </div>
-                    <pre id={'hw1-text-' + props.message.id} className={s.messageText}>
-                        {/*создаёт студент*/}
-
-                        {/**/}
-                    </pre>
-                </div>
-            </div>
-            <div id={'hw1-time-' + props.message.id} className={s.time}>
-                {/*создаёт студент*/}
-
-                {/**/}
-            </div>
-        </div>
+        <MessageBlock id={'hw1-message-' + message.id}>
+            <ImageAndText>
+                <ImageAndTime>
+                    <Image id={'hw1-avatar-' + message.id} src={message.user.avatar} alt="avatar"/>
+                    <Time id={'hw1-time-' + message.id}>
+                        {message.message.time}
+                    </Time>
+                </ImageAndTime>
+                <MessageText>
+                    <MessageName id={'hw1-name-' + message.id}>
+                        {message.user.name}
+                    </MessageName>
+                    <MessageTextBlock id={'hw1-text-' + message.id} className={s.messageText}>
+                        {message.message.text}
+                    </MessageTextBlock>
+                </MessageText>
+            </ImageAndText>
+        </MessageBlock>
     )
 }
 
