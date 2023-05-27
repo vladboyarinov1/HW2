@@ -6,7 +6,6 @@ import FriendMessage from './friend-message/FriendMessage'
 import avatar from './avatar.png'
 import styled from 'styled-components';
 
-
 export type UserType = {
     avatar: string
     name: string
