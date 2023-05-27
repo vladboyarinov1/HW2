@@ -29,7 +29,7 @@ export let Image = styled.img`
 export let MessageText = styled.div`
   position: relative;
   background-color: #0066CC;
-  border-radius: 6px 6px 0px 6px;
+  border-radius: 12px 12px 0px 12px;
   padding: 7px 13px;
   max-width: 500px;
 
