@@ -5,6 +5,7 @@ import s2 from '../../s1-main/App.module.css'
 import FriendMessage from './friend-message/FriendMessage'
 import avatar from './avatar.png'
 import styled from 'styled-components';
+import {Container, HwTitle} from '../../common/styles/container';
 
 export type UserType = {
     avatar: string
@@ -47,8 +48,8 @@ export const friendMessage0: MessageType = {
 
 const HW1 = () => {
     return (
-        <div>
-            <HwTitle>Homework</HwTitle>
+        <HWContainer>
+            <HwTitle>Homework #1</HwTitle>
             <div style={{border: '1px solid #D9D9D9'}}></div>
             <Container id={'hw1'}>
                 <div className={s2.hw}>
@@ -59,27 +60,13 @@ const HW1 = () => {
                     <MessageSender M={Message}/>
                 </div>
             </Container>
-        </div>
+        </HWContainer>
     )
 }
 export default HW1
 
-let Container = styled.div`
-  max-width: 1280px;
-  min-width: 360px;
-  margin: 0 auto;
-  padding: 24px 70px 35px 70px;
-  @media screen and (max-width: 760px) {
-    padding: 10px 10px 20px 10px;
-  }
+let HWContainer = styled.div`
+  margin-bottom: 30px;
 `
-let HwTitle = styled(Container)`
-  font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 22px;
-  color: #000000;
-  padding: 10px 70px 0;
-  @media screen and (max-width: 760px) {
-    padding: 10px 10px 0;
-  }
-`
+
+

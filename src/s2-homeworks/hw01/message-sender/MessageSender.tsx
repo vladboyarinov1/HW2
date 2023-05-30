@@ -87,6 +87,7 @@ let Textarea = styled.textarea`
   resize: none;
   float: left; /* добавляем плавающий элемент */
   margin-right: 10px; /* добавляем отступ справа */
+
   @media screen and (max-width: 760px) {
     width: 100%;
     margin-right: 0;
