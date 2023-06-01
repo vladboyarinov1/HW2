@@ -1,7 +1,8 @@
 import React from 'react'
-import { HashRouter } from 'react-router-dom'
-import { Layout } from './layout/Layout'
+import {HashRouter} from 'react-router-dom'
+import {Layout} from './layout/Layout'
 import Pages from './Pages'
+import {Container} from '../../common/styles/container';
 
 /*
 * 1 - в файле Pages.tsx дописать роуты на все страницы
@@ -13,7 +14,7 @@ function HW5() {
     return (
         <HashRouter>
             <Layout>
-                <Pages />
+                    <Pages/>
             </Layout>
         </HashRouter>
     )

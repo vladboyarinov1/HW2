@@ -13,6 +13,7 @@ type PropsType = {
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
+
     return (
         <>
             {/*затемнение справа от открытого меню*/}
@@ -59,21 +60,21 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
 }
 
 const NavWrapper = styled.div`
-  margin-left: 10px;
-  font-size: 20px;
-
+    margin-bottom: 20px;
   & > a {
     text-decoration: none;
-    color: mediumseagreen;
+    color: #000000;
+    font-weight: 600;
+    font-size: 22px;
   }
 
   & > a.active {
-    text-decoration: none;
-    color: #9b1967;
+    text-decoration: underline;
+    color: #0059B2;
   }
 
   & > a:hover {
-    color: dodgerblue;
+    color: #58ACFF;
   }
 
 `
