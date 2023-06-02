@@ -1,12 +1,15 @@
 .App {
-    /*--header_height: 60px;*/
-
     font-family: 'Montserrat', sans-serif;
     line-height: 1.2;
 }
 
 .hw {
-
+    width: 276px;
+}
+@media screen and (max-width: 760px){
+    .hw {
+        width: 100%;
+    }
 }
 
 .hwTitle {
