@@ -1,5 +1,16 @@
 .buttonsContainer {
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .editableSpanContainer {
+    width: 100%;
+}
+
+@media screen and (max-width: 760px){
+    .buttonsContainer{
+        justify-content: space-evenly;
+
+    }
 }
