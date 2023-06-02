@@ -7,7 +7,18 @@
 .editableSpanContainer {
     width: 100%;
 }
+.hw {
+    width: 276px;
+}
+@media screen and (max-width: 760px){
+    .hw {
+        width: 100%;
+    }
+}
 
+.hwTitle {
+
+}
 @media screen and (max-width: 760px){
     .buttonsContainer{
         justify-content: space-evenly;

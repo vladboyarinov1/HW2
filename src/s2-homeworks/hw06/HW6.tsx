@@ -29,7 +29,7 @@ const HW6 = () => {
 
             {/*демонстрация возможностей компоненты:*/}
             <Container>
-                <div className={s2.hw}>
+                <div className={s.hw}>
                     <div className={s.editableSpanContainer}>
                         <SuperEditableSpan
                             id={'hw6-spanable-input'}
