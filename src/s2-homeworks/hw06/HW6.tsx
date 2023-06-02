@@ -4,6 +4,7 @@ import { restoreState, saveState } from './localStorage/localStorage'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import s from './HW6.module.css'
+import {Container, HwTitle} from '../../common/styles/container';
 
 /*
  * 1 - в файле SuperEditableSpan.tsx дописать логику функций onEnterCallback, onBlurCallback, onDoubleClickCallBack
@@ -24,10 +25,10 @@ const HW6 = () => {
 
     return (
         <div id={'hw6'}>
-            <div className={s2.hwTitle}>Homework #6</div>
+            <HwTitle className={s2.hwTitle}>Homework #6</HwTitle>
 
             {/*демонстрация возможностей компоненты:*/}
-            <div className={s2.hw}>
+            <Container className={s2.hw}>
                 <div className={s.editableSpanContainer}>
                     <SuperEditableSpan
                         id={'hw6-spanable-input'}
@@ -52,7 +53,7 @@ const HW6 = () => {
                         Get from ls
                     </SuperButton>
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }
