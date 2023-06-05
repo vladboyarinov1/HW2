@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import SuperSelect from './common/c5-SuperSelect/SuperSelect'
 import SuperRadio from './common/c6-SuperRadio/SuperRadio'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW7.module.css'
+import {Container, HwTitle} from '../../common/styles/container';
 
 /*
 * 1 - в файле SuperSelect.tsx дописать логику функции onChangeCallback
@@ -12,20 +13,21 @@ import s from './HW7.module.css'
 * */
 
 const arr = [
-    { id: 1, value: 'x' },
-    { id: 2, value: 'y' },
-    { id: 3, value: 'z' },
+    {id: 1, value: 'x'},
+    {id: 2, value: 'y'},
+    {id: 3, value: 'z'},
+    {id: 4, value: 'd'},
+    {id: 5, value: 'g'},
 ] // value может быть изменено
 
 const HW7 = () => {
     const [value, onChangeOption] = useState(1) // селект и радио должны работать синхронно
-
     return (
         <div id={'hw7'}>
-            <div className={s2.hwTitle}>Homework #7</div>
+            <HwTitle className={s2.hwTitle}>Homework #7</HwTitle>
 
             {/*демонстрация возможностей компонент:*/}
-            <div className={s2.hw}>
+            <Container className={s2.hw}>
                 <div className={s.container}>
                     <div>
                         <SuperSelect
@@ -45,7 +47,7 @@ const HW7 = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }
