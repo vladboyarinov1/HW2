@@ -4,6 +4,7 @@ import s from './HW8.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
+import {Container, HwTitle} from '../../common/styles/container';
 
 /*
 * 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
@@ -19,12 +20,11 @@ export type UserType = {
 
 const initialPeople: UserType[] = [
     // студенты могут поменять имя/возраст/количество объектов, _id должны быть целочисленные
-    {_id: 0, name: 'Кот', age: 3},
-    {_id: 1, name: 'Александр', age: 66},
-    {_id: 2, name: 'Коля', age: 16},
-    {_id: 3, name: 'Виктор', age: 44},
-    {_id: 4, name: 'Дмитрий', age: 40},
-    {_id: 5, name: 'Ирина', age: 55},
+    {_id: 0, name: 'Влад', age: 54},
+    {_id: 1, name: 'Александр', age: 19},
+    {_id: 2, name: 'Коля', age: 23},
+    {_id: 3, name: 'Виктор', age: 16},
+
 ]
 
 const HW8 = () => {
@@ -32,7 +32,6 @@ const HW8 = () => {
     const [currentSort, setCurrentSort] = useState('')
 
     const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
-
     const sortUp = () => {
         setPeople(
             homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})
@@ -55,8 +54,8 @@ const HW8 = () => {
 
     return (
         <div id={'hw3'}>
-            <div className={s2.hwTitle}>Homework #8</div>
-            <div className={s2.hw}>
+            <HwTitle className={s2.hwTitle}>Homework #8</HwTitle>
+            <Container className={s2.hw}>
                 <div className={s.container}>
                     <div className={s.buttonsContainer}>
                         <SuperButton
@@ -93,7 +92,7 @@ const HW8 = () => {
                         <tbody>{finalPeople}</tbody>
                     </table>
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }
