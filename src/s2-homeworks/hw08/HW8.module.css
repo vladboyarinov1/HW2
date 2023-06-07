@@ -1,23 +1,65 @@
 .item {
+
 }
 
 .item:last-of-type {
 }
 
 .users {
+    border-collapse: collapse;
+    width: 100%;
+
 }
 
 .buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .container {
+    max-width: 606px;
+    border: 1px solid rebeccapurple;
 }
 
 .thead {
+
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 14px;
+    color: #000000;
+    background-color: #E5E5E5;
+
+
 }
 
+.thead tr {
+    height: 36px;
+    /*background-color: #b31232;*/
+
+}
+
+
+tbody {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    color: #000000;
+
+}
+td {
+    padding: 10px 0;
+}
+tr {
+
+}
+
+
 .nameCol {
+    padding-left: 17px;
+
 }
 
 .ageCol {
+
+
 }
