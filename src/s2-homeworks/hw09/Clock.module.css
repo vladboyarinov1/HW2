@@ -1,4 +1,8 @@
-.buttonsContainer {
+.buttonsContainer button {
+    margin-right: 21px;
+}
+.buttonsContainer button:last-child {
+    margin: 0;
 }
 
 .clock {
