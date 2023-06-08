@@ -34,7 +34,9 @@ function Clock() {
 
     const stringTime = date.toLocaleTimeString() || <br/> //
     // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = date.toLocaleDateString() || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringDate = date.toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'})
+        || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    // toLocaleDateString()
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = date.toLocaleString('en-Us', {weekday: 'long'}) || <br/> // пишут студенты
