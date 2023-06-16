@@ -1,8 +1,13 @@
 .container {
+
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .number {
+ padding: 0 13px;
+
 }
