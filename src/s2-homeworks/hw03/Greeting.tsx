@@ -1,10 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 import styled from 'styled-components';
-import {Simulate} from 'react-dom/test-utils';
-import error = Simulate.error;
-import {blue, red} from '@mui/material/colors';
-
 type GreetingPropsType = {
     name: string
     setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void

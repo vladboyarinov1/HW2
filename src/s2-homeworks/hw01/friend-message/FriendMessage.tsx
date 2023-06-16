@@ -4,7 +4,7 @@ import {
     Image,
     ImageAndText,
     ImageAndTime,
-    MessageBlock, MessageTextBlock, MessageName, MessageText,
+    MessageBlock, MessageTextBlock, MessageName,
     Time
 } from '../../../common/styles/commonMessageStyle';
 import styled from 'styled-components';

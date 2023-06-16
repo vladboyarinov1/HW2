@@ -1,8 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
 import {UserType} from './HW3'
-import {Simulate} from 'react-dom/test-utils';
-import error = Simulate.error;
 
 type GreetingContainerPropsType = {
     users: UserType[] // need to fix any

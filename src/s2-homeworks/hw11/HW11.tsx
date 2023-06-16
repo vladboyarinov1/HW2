@@ -1,18 +1,12 @@
-import React, {useState} from 'react'
+import React, {memo, useState} from 'react'
 import s from './HW11.module.css'
 import s2 from '../../s1-main/App.module.css'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 import {Container, HwTitle} from '../../common/styles/container';
-import {isArray, log} from 'util';
 
-/*
-* 1 - передать значения в оба слайдера
-* 2 - дописать типы и логику функции change
-* 3 - сделать стили в соответствии с дизайном
-* */
 
-function HW11() {
+const HW11 = () => {
     // for autotests // не менять // можно подсунуть в локалСторэдж нужные числа, чтоб увидеть как они отображаются
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
     const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
@@ -29,9 +23,9 @@ function HW11() {
 
     return (
         <div id={'hw11'}>
-            <HwTitle className={s2.hwTitle}>Homework #11</HwTitle>
+            <HwTitle>Homework #11</HwTitle>
 
-            <Container className={s2.hw}>
+            <Container>
                 <div className={s.container}>
                     <div className={s.wrapper}>
                         <span id={'hw11-value'} className={s.number}>{value1}</span>
