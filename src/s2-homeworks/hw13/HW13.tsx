@@ -19,8 +19,10 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [isDisabled, setDisabled] = useState<boolean>(false)
 
     const send = (x?: boolean | null) => () => {
+        setDisabled(true)
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
@@ -51,7 +53,9 @@ const HW13 = () => {
                 setCode(errorData.code);
                 setInfo(response.data?.info || errorData.info);
                 setText(response.data?.errorText || errorData.text);
-            })
+            }).finally(() => {
+            setDisabled(false)
+        })
     }
 
     return (
@@ -64,7 +68,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-
+                        disabled={isDisabled}
                     >
                         Send true
                     </SuperButton>
@@ -72,7 +76,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={isDisabled}
 
                     >
                         Send false
@@ -81,7 +85,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={isDisabled}
 
                     >
                         Send undefined
@@ -90,7 +94,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
+                        disabled={isDisabled}
 
                     >
                         Send null
