@@ -36,12 +36,21 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
-
+                setInfo(res.data.info)
+                setText(res.data.errorText)
             })
             .catch((e) => {
-                // дописать
+                const {response} = e;
+                const errorData = response.status === 500
+                    ? {image: error500, code: 'Ошибка 500!'}
+                    : response.status === 400
+                        ? {image: error400, code: 'Ошибка 400!'}
+                        : {image: errorUnknown, code: 'Error!', info: 'Network Error!', text: 'AxiosError'};
 
+                setImage(errorData.image);
+                setCode(errorData.code);
+                setInfo(response.data?.info || errorData.info);
+                setText(response.data?.errorText || errorData.text);
             })
     }
 
@@ -55,7 +64,6 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
 
                     >
                         Send true

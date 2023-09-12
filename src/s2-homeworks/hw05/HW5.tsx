@@ -13,7 +13,7 @@ function HW5() {
     return (
         <HashRouter>
             <Layout>
-                    <Pages/>
+                <Pages/>
             </Layout>
         </HashRouter>
     )
