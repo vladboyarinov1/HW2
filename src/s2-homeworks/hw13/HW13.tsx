@@ -7,6 +7,7 @@ import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
+import {Container, HwTitle} from '../../common/styles/container';
 
 /*
 * 1 - дописать функцию send
@@ -60,9 +61,9 @@ const HW13 = () => {
 
     return (
         <div id={'hw13'}>
-            <div className={s2.hwTitle}>Homework #13</div>
+            <HwTitle className={s2.hwTitle}>Homework #13</HwTitle>
 
-            <div className={s2.hw}>
+            <Container className={s2.hw}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
@@ -118,7 +119,7 @@ const HW13 = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }
