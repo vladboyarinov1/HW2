@@ -1,4 +1,4 @@
-import React, {DetailedHTMLProps, InputHTMLAttributes, ReactNode, useState} from 'react'
+import React, {DetailedHTMLProps, InputHTMLAttributes, ReactNode, useEffect, useState} from 'react'
 import SuperInputText from '../../../hw04/common/c1-SuperInputText/SuperInputText'
 
 // тип пропсов обычного инпута
@@ -29,25 +29,30 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
 
     const onChangeTextCallback = (value: string) => {
-        onChangeText?.(value)
+        onChangeText?.(value);
 
         if (onDebouncedChange) {
-            const interval = setTimeout(() => {
-                setTimerId(prevState => (prevState !== undefined ? prevState + 1 : 0));
-                onDebouncedChange(value)
+            if (timerId) {
+                clearTimeout(timerId); // Остановка предыдущего таймера
+            }
+
+            const timeout = setTimeout(() => {
+                setTimerId(undefined);
+                onDebouncedChange(value);
             }, 1500);
 
-            // остановить предыдущий таймер
-            // запустить новый на 1500ms, в котором вызовется функция
-            return () => {
-                clearInterval(interval);
-            };
+            setTimerId(timeout as unknown as number); // Приведение типов и установка значения таймера
         }
-    }
+    };
 
-    return (
-        <SuperInputText onChangeText={onChangeTextCallback} {...restProps}/>
-    )
-}
+    useEffect(() => {
+        return () => {
+            if (timerId) {
+                clearTimeout(timerId); // Остановка таймера при размонтировании компонента
+            }
+        };
+    }, [timerId]);
 
+    return <SuperInputText onChangeText={onChangeTextCallback} {...restProps} />;
+};
 export default SuperDebouncedInput
