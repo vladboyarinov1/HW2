@@ -40,65 +40,41 @@ const getTechs = (params: ParamsType) => {
 }
 
 const HW15 = () => {
-    const [sort, setSort] = useState('')
-    const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(100)
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [techs, setTechs] = useState<TechType[]>([])
-
-    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+    const [sort, setSort] = useState('');
+    const [page, setPage] = useState(1);
+    const [count, setCount] = useState(4);
+    const [idLoading, setLoading] = useState(false);
+    const [totalCount, setTotalCount] = useState(100);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [techs, setTechs] = useState<TechType[]>([]);
 
     const sendQuery = (params: any) => {
-        setLoading(true)
+        setLoading(true);
         getTechs(params)
             .then((res) => {
-                setTechs(res?.data.techs || [])
-                setTotalCount(res?.data.totalCount || 0)
-                setLoading(false)
-            })
-    }
+                setTechs(res?.data.techs || []);
+                setTotalCount(res?.data.totalCount || 0);
+                setLoading(false);
+            });
+    };
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
-
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-        setPage(newPage)
-        setCount(newCount)
-        setSearchParams({ page: String(newPage), count: String(newCount) })
-        sendQuery({ page: newPage, count: newCount })
-        //
-    }
+        setPage(newPage);
+        setCount(newCount);
+        setSearchParams({ page: String(newPage), count: String(newCount) });
+        sendQuery({ page: newPage, count: newCount });
+    };
 
     const onChangeSort = (newSort: string) => {
         if (sort === newSort) {
-            if (sortDirection === 'asc') {
-                setSort(`-${newSort}`);
-                setSortDirection('desc');
-            } else {
-                setSort('');
-                setSortDirection('asc');
-            }
+            setSort(sort === '' ? `-${newSort}` : '');
         } else {
             setSort(newSort);
-            setSortDirection('asc');
         }
         setPage(1);
         setSearchParams({ sort: newSort, page: '1', count: String(count) });
         sendQuery({ sort: newSort, page: 1, count });
     };
-
-    useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
-    }, [])
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
