@@ -48,6 +48,8 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
+    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
@@ -74,11 +76,22 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
-        setSort(newSort)
-        setPage(1) // Сбрасываем страницу на первую при изменении сортировки
-        setSearchParams({ sort: newSort, page: '1', count: String(count) })
-        sendQuery({ sort: newSort, page: 1, count })
-    }
+        if (sort === newSort) {
+            if (sortDirection === 'asc') {
+                setSort(`-${newSort}`);
+                setSortDirection('desc');
+            } else {
+                setSort('');
+                setSortDirection('asc');
+            }
+        } else {
+            setSort(newSort);
+            setSortDirection('asc');
+        }
+        setPage(1);
+        setSearchParams({ sort: newSort, page: '1', count: String(count) });
+        sendQuery({ sort: newSort, page: 1, count });
+    };
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
